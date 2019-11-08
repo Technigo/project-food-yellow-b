@@ -11,7 +11,8 @@ fetch(url, { headers: { "user-key": apiKey } })
         json.restaurants.forEach(resto => {
             const name = resto.restaurant.name
             const address = resto.restaurant.location.address
-            const priceRange = resto.restaurant.price_range // Try to show dollar signs instead of numbers
+            const priceSymbol = "$";
+            const priceRange = priceSymbol.repeat(resto.restaurant.price_range) // Try to show dollar signs instead of numbers
             const photo = resto.restaurant.thumb
             const rating = resto.restaurant.user_rating.rating_text
             document.getElementById("restaurants").innerHTML += `<div class="restaurant">  
