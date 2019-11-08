@@ -13,17 +13,51 @@ fetch(url, { headers: { "user-key": apiKey } })
 
     })
 
-const displayRestaurants = (list) => {
-    const name = list.restaurant.name
-    const address = list.restaurant.location.address
-    const priceSymbol = "$";
-    const priceRange = priceSymbol.repeat(list.restaurant.price_range) // Try to show dollar signs instead of numbers
-    const photo = list.restaurant.thumb
-    const rating = list.restaurant.user_rating.rating_text
+const displayRestaurants = (item) => {
+    const name = item.restaurant.name
+    const address = item.restaurant.location.address
+    const averageCost = item.restaurant.average_cost_for_two// Try to show dollar signs instead of numbers
+    const photo = item.restaurant.thumb
+    const rating = item.restaurant.user_rating.rating_text
+   
     document.getElementById("restaurants").innerHTML += `<div class="restaurant">  
         <img src="${photo}" alt="${name} photo">
         <h2>${name}</h2>
-        <p><span class="rating">Rating: ${rating}</span> <span class="price-range">Price range: ${priceRange}</span></p>
+        <p><span class="rating">Rating: ${rating}</span> <span class="average-cost"> Average cost: ${averageCost}</span></p>
         <p class="address">${address}</p>
         </div>` // Add placeholder img where empty
+       }
+
+let ascendingPrice = false 
+
+const sortByPrice = () => {
+    const priceAscending = "&sort=cost&order=asc" 
+    const priceDescending = "&sort=cost&order=desc"
+    if (ascendingPrice === false){
+        fetch (url + priceAscending, {headers:{"user-key": apiKey}})
+        .then(res => res.json())
+        .then(json => { 
+            const restaurants = json.restaurants
+            document.getElementById("restaurants").innerHTML = "";
+            restaurants.forEach(displayRestaurants)
+        })  
+        ascendingPrice = true
+        sortButton.innerHTML = "Sort by descending price"
+    } else {
+        fetch (url + priceDescending, {headers:{"user-key": apiKey}})
+        .then(res => res.json())
+        .then(json => { 
+            const restaurants = json.restaurants
+            document.getElementById("restaurants").innerHTML = "";
+            restaurants.forEach(displayRestaurants)
+        })
+        ascendingPrice = false
+        sortButton.innerHTML = "Sort by ascending price"
+    }
 }
+
+const sortButton = document.getElementById("sortPrice")
+sortButton.addEventListener("click", () => {
+    sortByPrice()
+})
+
