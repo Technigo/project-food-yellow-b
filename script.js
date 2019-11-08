@@ -9,8 +9,8 @@ fetch(url, { headers: { "user-key": apiKey } })
     .then(res => res.json())
     .then(json => {
         const restaurants = json.restaurants
-
         restaurants.forEach(displayRestaurants)
+
     })
 
 const displayRestaurants = (list) => {
@@ -27,7 +27,3 @@ const displayRestaurants = (list) => {
         <p class="address">${address}</p>
         </div>` // Add placeholder img where empty
 }
-
-
-
-
