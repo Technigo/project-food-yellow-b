@@ -9,8 +9,8 @@ fetch(url, { headers: { "user-key": apiKey } })
     .then(res => res.json())
     .then(json => {
         const restaurants = json.restaurants
-
         restaurants.forEach(displayRestaurants)
+
     })
 
 const displayRestaurants = (item) => {
@@ -60,3 +60,4 @@ const sortButton = document.getElementById("sortPrice")
 sortButton.addEventListener("click", () => {
     sortByPrice()
 })
+

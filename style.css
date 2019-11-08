@@ -1,3 +1,60 @@
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    font-size:20px;
+    box-sizing:border-box;
+    margin:0px;
+}
+
+
+header {
+    background:whitesmoke;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border: 2px solid black;
+    border-radius: 16px;
+    margin:0 0 2px;
+  }
+  
+  .hamburger {
+    display:flex;
+    width:30px;
+    height:30px;
+    flex-direction:column;
+    justify-content:space-between;
+    margin-right:24px;
+  }
+
+  .hamburger div {
+    width:30px;
+    height:5px;
+    background:black;
+    border-radius:5px;
+  }
+  
+  header img {
+    height:60px;
+    width: auto;
+    background:white;
+    border:1px solid black;
+    border-radius:16px;
+  }
+  
+  nav {
+  display:none;
+  }
+  
+  nav a {
+    color:black;
+    text-decoration:none;
+    margin-left:16px;
+  }
+
+
 .restaurant {
 
 }
