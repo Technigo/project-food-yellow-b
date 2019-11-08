@@ -13,12 +13,12 @@ fetch(url, { headers: { "user-key": apiKey } })
         restaurants.forEach(displayRestaurants)
     })
 
-const displayRestaurants = (list) => {
-    const name = list.restaurant.name
-    const address = list.restaurant.location.address
-    const averageCost = list.restaurant.average_cost_for_two// Try to show dollar signs instead of numbers
-    const photo = list.restaurant.thumb
-    const rating = list.restaurant.user_rating.rating_text
+const displayRestaurants = (item) => {
+    const name = item.restaurant.name
+    const address = item.restaurant.location.address
+    const averageCost = item.restaurant.average_cost_for_two// Try to show dollar signs instead of numbers
+    const photo = item.restaurant.thumb
+    const rating = item.restaurant.user_rating.rating_text
    
     document.getElementById("restaurants").innerHTML += `<div class="restaurant">  
         <img src="${photo}" alt="${name} photo">
