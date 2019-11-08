@@ -28,7 +28,6 @@ const displayRestaurants = (item) => {
         </div>` // Add placeholder img where empty
        }
 
-
 let ascendingPrice = false 
 
 const sortByPrice = () => {
