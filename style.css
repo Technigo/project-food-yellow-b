@@ -6,16 +6,20 @@ body {
     font-size:20px;
     box-sizing:border-box;
     margin:0px;
+    font-family: ‘Source Sans Pro’, sans-serif;
+    background-image: url(donuts_bg3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
 }
 
-
 header {
-    background:whitesmoke;
+    background:darkorchid;
     height: 50px;
     display: flex;
     align-items: center;
     padding: 16px;
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 16px;
     margin:0 0 2px;
   }
@@ -32,7 +36,7 @@ header {
   .hamburger div {
     width:30px;
     height:5px;
-    background:black;
+    background:white;
     border-radius:5px;
   }
   
@@ -45,28 +49,133 @@ header {
   }
   
   nav {
-  display:none;
+    display:none;
   }
   
   nav a {
-    color:black;
+    color:white;
     text-decoration:none;
     margin-left:16px;
   }
 
+  #sortPrice {
+    height:60px;
+    width:200px;
+    border:1px solid white;
+    background-color: darkorchid;
+    align-items: center;
+    border-radius: 16px;
+    margin-bottom: 10px;;
+    color: white;
+    font-size: 20px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
 
 .restaurant {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 16px;
+  margin: 10px 5px;
+  padding: 10px;
+}
 
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 15px;
+}
+
+.restaurant img {
+  width: 80%;
+  height: auto;
 }
 
 .address {
-
+  font-size: 16px;
+  margin: 10px;
 }
 
-.rating {
-
+p {
+  margin: 10px;
 }
 
-.price-range {
+/* Tablet */
+@media (min-width: 650px) {
+  header {
+    justify-content:space-between;
+    height: 80px;
+  }
+
+  nav {
+    display:inline-block;
+  }
+
+  .hamburger {
+    display:none;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+  
+  .restaurant {
+    width: 40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+  }
+
+  #sortPrice {
+    height:100px;
+    width:250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    justify-content:space-between;
+    height: 100px;
+  }
+
+  nav {
+    display:inline-block;
+  }
+
+  nav a {
+    font-size:20px;
+  }
+
+  .hamburger {
+    display:none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+.restaurant {
+width: 25%;
+height: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 
 }
